@@ -1032,7 +1032,8 @@ def find_coefficients(
             coefficients[key] = None
     if delete:
         os.remove(filename)
-    return coefficients
+    # return coefficients
+    return Data
 
 
 def find_pressure_coefficients(
@@ -1087,7 +1088,13 @@ def find_pressure_coefficients(
     return coefficients
 
 
-def find_alpha_L_0(airfoil, Reynolds=0, iteration=10, NACA=True):
+def find_alpha_L_0(
+        airfoil,
+        Reynolds=0,
+        iteration=10,
+        NACA=True,
+        PANE=False,
+        GDES=False,):
     """Find zero lift angle of attack.
 
     Calculate the angle of attack where the lift coefficient
@@ -1096,7 +1103,10 @@ def find_alpha_L_0(airfoil, Reynolds=0, iteration=10, NACA=True):
     filename = file_name(airfoil, output="Alfa_L_0")
     # If file already exists, there no need to recalculate it.
     if not os.path.isfile(filename):
-        call(airfoil, output="Alfa_L_0", NACA=NACA)
+        call(airfoil, output="Alfa_L_0",
+             NACA=NACA, iteration=iteration,
+             PANE=PANE, GDES=GDES,
+             Reynolds=Reynolds)
     alpha = output_reader(filename, output="Alfa_L_0", delete=True)["alpha"][0]
     return alpha
 
@@ -1136,3 +1146,4 @@ def M_crit(airfoil, pho, speed_sound, lift, c):
                 Data_crit["alpha"] = Data["alpha"][i]
         # if Data_crit['CL']==previous_iteration:
     return Data_crit
+    
