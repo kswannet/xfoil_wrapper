@@ -27,16 +27,16 @@ additional operating systems, please submit a pull request!
 
 
 *Note:
-I wrote down following changes made, but cant remember why. keeping it here just in case:
-"""
-change the output of find_coefficients to Data instead of coefficients
-replace
-    line_components = " -".join(line.rsplit("-"), 1)
-with
-    line_components = " -".join(line.rsplit("-"), 1)
-and add
-    line_components = line_components.replace('**********', ' nan')
-in 2 places 840 and 882
+I wrote down following changes made, but cant remember why. keeping it here just in case:<br>
+"""<br>
+change the output of find_coefficients to Data instead of coefficients<br>
+replace<br>
+    line_components = " -".join(line.rsplit("-"), 1)<br>
+with<br>
+    line_components = " -".join(line.rsplit("-"), 1)<br>
+and add<br>
+    line_components = line_components.replace('**********', ' nan')<br>
+in 2 places 840 and 882<br>
 """
 *
 
