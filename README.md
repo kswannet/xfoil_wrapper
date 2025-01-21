@@ -25,6 +25,21 @@ will be investigated.
 If you would like to contribute to this project by adding support for
 additional operating systems, please submit a pull request!
 
+
+*Note:
+I wrote down following changes made, but cant remember why. keeping it here just in case:
+"""
+change the output of find_coefficients to Data instead of coefficients
+replace
+    line_components = " -".join(line.rsplit("-"), 1)
+with
+    line_components = " -".join(line.rsplit("-"), 1)
+and add
+    line_components = line_components.replace('**********', ' nan')
+in 2 places 840 and 882
+"""
+*
+
 <!-- Un-wrapped Links below -->
 [python_badge]: https://img.shields.io/badge/python-3.7%20|%203.8-blue.svg
 [mit_badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
